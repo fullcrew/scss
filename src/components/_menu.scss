@@ -1,0 +1,78 @@
+$menu-item-color: var(--text) !default;
+$menu-item-hover-color: var(--primary-6) !default;
+$menu-item-hover-background-color: var(--background) !default;
+$menu-item-active-color: var(--primary-6) !default;
+$menu-item-active-background-color: var(--primary-1) !default;
+
+$menu-list-border-left: 1px solid $border !default;
+$menu-list-line-height: 1.25 !default;
+$menu-list-link-padding: 0.5rem 0.75rem !default;
+$menu-nested-list-margin: 0.75rem !default;
+$menu-nested-list-padding-left: 0.75rem !default;
+
+$menu-label-color: $text-light !default;
+$menu-label-font-size: 0.75rem !default;
+$menu-label-letter-spacing: 0.1rem !default;
+$menu-label-spacing: 1rem !default;
+
+.menu {
+  font-size: $size-normal;
+
+  // Sizes
+  &.is-small {
+    font-size: $size-small;
+  }
+
+  &.is-medium {
+    font-size: $size-medium;
+  }
+
+  &.is-large {
+    font-size: $size-large;
+  }
+}
+
+.menu-list {
+  line-height: $menu-list-line-height;
+
+  a {
+    color: $menu-item-color;
+    display: block;
+    padding: $menu-list-link-padding;
+
+    &:hover {
+      background-color: $menu-item-hover-background-color;
+      color: $menu-item-hover-color;
+    }
+
+    // Modifiers
+    &.is-active {
+      background-color: $menu-item-active-background-color;
+      color: $menu-item-active-color;
+      border-right: 3px solid var(--primary-6);
+    }
+  }
+
+  li {
+    ul {
+      border-left: $menu-list-border-left;
+      margin: $menu-nested-list-margin;
+      padding-left: $menu-nested-list-padding-left;
+    }
+  }
+}
+
+.menu-label {
+  color: $menu-label-color;
+  font-size: $menu-label-font-size;
+  letter-spacing: $menu-label-letter-spacing;
+  text-transform: uppercase;
+
+  &:not(:first-child) {
+    margin-top: $menu-label-spacing;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: $menu-label-spacing;
+  }
+}

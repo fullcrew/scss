@@ -1,0 +1,42 @@
+{
+  "name": "@fullcrew/scss",
+  "version": "0.0.1",
+  "homepage": "https://develop.fullcrew.io",
+  "author": "Fullcrew, Inc. Team",
+  "description": "SCSS for Fullcrew Design",
+  "main": "src/fullcrew.scss",
+  "jsdelivr": "dist/fullcrew.min.css",
+  "style": "dist/fullcrew.css",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fullcrew/scss.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "css",
+    "scss",
+    "css grid",
+    "css variables"
+  ],
+  "bugs": {
+    "url": "https://github.com/fullcrew/scss/issues"
+  },
+  "scripts": {
+    "deploy": "pnpm run build:clean && pnpm run build:scss && pnpm run build:autoprefix && pnpm run build:cleancss",
+    "build:autoprefix": "postcss --use autoprefixer --map false --output dist/fullcrew.css dist/fullcrew.css",
+    "build:cleancss": "cleancss -o dist/fullcrew.min.css dist/fullcrew.css",
+    "build:clean": "rm -rf dist",
+    "build:scss": "node-sass --output-style expanded --source-map true src/fullcrew.scss dist/fullcrew.css",
+    "dev": "pnpm run build:scss -- --watch"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.7.6",
+    "clean-css-cli": "^4.3.0",
+    "node-sass": "^4.13.1",
+    "postcss-cli": "^7.1.0"
+  },
+  "files": [
+    "dist",
+    "src"
+  ]
+}
